@@ -1,0 +1,24 @@
+---
+import DetailComponent from "../components/DetailComponent.jsx";
+import Layout from "../layouts/Layout.astro";
+import { fetchServices } from "../utils/sanityData";
+
+// Fetching data dynamically
+const services = await fetchServices(); 
+
+// Transform fetched data into the required structure
+const data = services.map((service) => ({
+  title: service.title,
+  description: service.description,
+  slug: service.slug, // Include slug for each service
+  images: service.images.map((image) => ({
+    src: image.src,
+    alt: image.alt || "Service image",
+  })),
+}));
+---
+
+<Layout title="Services">
+  <!-- Pass the fetched data as props to DetailComponent -->
+  <DetailComponent data={data} client:load />
+</Layout>

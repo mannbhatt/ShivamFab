@@ -1,0 +1,26 @@
+---
+import DetailComponent from "../components/DetailComponent.jsx";
+import Layout from "../layouts/Layout.astro";
+import { fetchIndustry } from "../utils/sanityData";  // Corrected function name
+
+// Fetching data dynamically
+const industrydata = await fetchIndustry();  // Corrected function name
+
+// Transform fetched data into the required structure
+const data = industrydata.map((industry) => ({
+  title: industry.title,
+  description: industry.description,
+  slug: industry.slug, // Include slug for each industry
+  images: industry.images.map((image) => ({
+    src: image.src,
+    alt: image.alt || "Industry image",  // Changed to "Industry image" for context
+  })),
+}));
+console.log(data);
+
+---
+
+<Layout title="Industry">
+  <!-- Pass the fetched data as props to DetailComponent -->
+  <DetailComponent data={data} client:load />
+</Layout>

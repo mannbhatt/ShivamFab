@@ -1,0 +1,131 @@
+---
+const { pathname } = new URL(Astro.url);
+---
+<div class="bg-[#072F6A]">
+    <div class="container mx-auto flex justify-between items-center py-4 px-6">
+      <!-- Logo -->
+      <div class="flex items-center">
+        <img src="/logo.png" alt="Logo" class="h-10 mr-2" />
+        <span class="text-lg font-medium">Megan</span>
+      </div>
+  
+      <!-- Hamburger Icon for Mobile (Hidden on Desktop) -->
+      <button id="hamburgerIcon" class="lg:hidden text-3xl text-[#072F6A]">
+        &#9776; <!-- Hamburger Icon -->
+      </button>
+  
+      <!-- Navigation Links (Visible on Desktop) -->
+      <nav class="hidden lg:flex space-x-6 items-center">
+        <a href="/" class="relative text-base font-medium group transition-all duration-300 hover:text-[#072F6A]">
+          Home
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/servicesPage" class="relative text-base font-medium group transition-all duration-300 hover:text-[#072F6A]">
+          Industry
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/caseStudy" class="relative text-base font-medium group transition-all duration-300 hover:text-[#072F6A]">
+          Case Study
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+        <a href="/industryPage" class="relative text-base font-medium group transition-all duration-300 hover:text-[#072F6A]">
+          industry
+          <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+        </a>
+  
+        <!-- Contact Us Link -->
+        <a href="/contact-us" class="text-base font-medium text-[#01D0D2] bg-[#072F6A] py-2 px-6 rounded-lg flex justify-center items-center">
+          Contact Us
+        </a>
+      </nav>
+    </div>
+  </div>
+  
+  <!-- Mobile Menu (Hidden initially) -->
+  <div id="mobileNavMenu" class="lg:hidden fixed top-10 right-0 bottom-0 bg-[#A7C5FB] bg-opacity-90 z-50 hidden w-[60%] h-[100vh]">
+    <div class="flex justify-end p-6">
+      <button id="closeMenu" class="text-[#072F6A] text-3xl">
+        &times; <!-- Cross Icon -->
+      </button>
+    </div>
+  
+    <!-- Mobile Menu that takes width from the right side -->
+    <div class="flex flex-col items-start space-y-6 px-6 py-4 w-full h-full">
+      <a href="/" class="relative text-xl font-semibold group text-[#072F6A] hover:text-[#01D0D2]">
+        Home
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full" id="homeLink"></span>
+      </a>
+      <a href="../pages/Industry" class="relative text-xl font-semibold group text-[#072F6A] hover:text-[#01D0D2]">
+        Industry
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full" id="industryLink"></span>
+      </a>
+      <a href="/case-study" class="relative text-xl font-semibold group text-[#072F6A] hover:text-[#01D0D2]">
+        Case Study
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full" id="caseStudyLink"></span>
+      </a>
+      <a href="/about-us" class="relative text-xl font-semibold group text-[#072F6A] hover:text-[#01D0D2]" id="aboutUsLink">
+        About Us
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+      <a href="/contact-us" class="relative text-xl font-semibold group text-[#072F6A] hover:text-[#01D0D2]" id="contactUsLink">
+        Contact Us
+        <span class="absolute bottom-0 left-0 w-0 h-[2px] bg-[#072F6A] transition-all duration-300 group-hover:w-full"></span>
+      </a>
+    </div>
+  </div>
+  
+  <!-- Tailwind CSS and Vanilla JS for Mobile Toggle -->
+  <script>
+    const hamburgerIcon = document.getElementById('hamburgerIcon');
+    const mobileNavMenu = document.getElementById('mobileNavMenu');
+    const closeMenu = document.getElementById('closeMenu');
+    
+    // Check if elements exist before attaching event listeners
+    if (hamburgerIcon && mobileNavMenu && closeMenu) {
+      // Toggle mobile menu on hamburger icon click
+      hamburgerIcon.addEventListener('click', () => {
+        mobileNavMenu.classList.toggle('hidden'); // Toggle visibility of the menu
+      });
+    
+      // Close mobile menu on cross button click
+      closeMenu.addEventListener('click', () => {
+        mobileNavMenu.classList.add('hidden'); // Hide the menu
+      });
+    }
+  
+    // JavaScript to highlight the active page in the menu
+    document.addEventListener("DOMContentLoaded", function () {
+      const path = window.location.pathname;
+    
+      // Remove any previous active states (remove 'group-hover:w-full' class)
+      document.querySelectorAll('.group-hover').forEach(el => el.classList.remove('group-hover'));
+    
+      // Add hover effect to the active page link
+      if (path.includes("/about-us")) {
+        const aboutUsLink = document.getElementById('aboutUsLink');
+        if (aboutUsLink) {
+          aboutUsLink.classList.add('group-hover:w-full');
+        }
+      } else if (path.includes("/industry")) {
+        const industryLink = document.getElementById('industryLink');
+        if (industryLink) {
+          industryLink.classList.add('group-hover:w-full');
+        }
+      } else if (path.includes("/case-study")) {
+        const caseStudyLink = document.getElementById('caseStudyLink');
+        if (caseStudyLink) {
+          caseStudyLink.classList.add('group-hover:w-full');
+        }
+      } else if (path.includes("/contact-us")) {
+        const contactUsLink = document.getElementById('contactUsLink');
+        if (contactUsLink) {
+          contactUsLink.classList.add('group-hover:w-full');
+        }
+      } else {
+        const homeLink = document.getElementById('homeLink');
+        if (homeLink) {
+          homeLink.classList.add('group-hover:w-full');
+        }
+      }
+    });
+  </script>

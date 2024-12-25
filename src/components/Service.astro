@@ -1,0 +1,83 @@
+---
+import { fetchServices } from '../utils/sanityData';
+
+// Fetch data from Sanity
+const services = await fetchServices();
+
+// Transform fetched data into the required structure
+const serviceDetails = services.map((service) => ({
+  title: service.title,
+  description: service.description,
+  image: service.images[0]?.src || '', // Access the `src` property of the first image
+  alt: service.images[0]?.alt || 'Default alt text', // Access the `alt` property or provide default
+  slug: service.slug, // Include slug for dynamic routing
+}));
+
+// Component props
+const {
+  heading = "Providing Best Services",
+  subheading = "We are dedicated to providing the best services in the sustainability manufacturing industry. Our commitment to excellence is reflected in our innovative practices, cutting-edge technology, and a passionate team of experts.",
+} = Astro.props;
+
+---
+
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-6 sm:px-6 lg:px-14">
+    <!-- Title and Subtitle -->
+    <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-12">
+      <div class="lg:w-[28%] text-center lg:text-left">
+        <h2 class="text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-900">{heading}</h2>
+      </div>
+      <div class="lg:max-w-lg font-semibold text-center lg:text-left mt-6 lg:mt-0">
+        <p class="text-gray-600 font-semibold">{subheading}</p>
+      </div>
+    </div>
+
+    <!-- Service Items -->
+    <div class="py-4 lg:py-6">
+      {serviceDetails.slice(0, 3).map((service) => (
+        <div class="flex flex-col lg:flex-row items-center gap-6 justify-between bg-white border-y py-6 lg:py-10">
+          <!-- Service Image -->
+          <img
+            src={service.image}
+            alt={service.alt}
+            class="w-4/5 lg:w-[30%] lg:h-40 rounded-2xl object-cover"
+          />
+
+          <!-- Service Details -->
+          <div class="lg:w-3/5 flex flex-col lg:flex-row justify-between gap-4">
+            <!-- Title Section -->
+            <div class="lg:w-2/5 flex justify-center lg:justify-start items-center text-center lg:text-left">
+              <h3 class="text-3xl lg:leading-tight lg:text-4xl font-semibold">{service.title}</h3>
+            </div>
+
+            <!-- Description Section -->
+            <div class="lg:w-1/2 flex justify-center lg:justify-start items-center text-center lg:text-left">
+              <p class="text-gray-600 text-sm mt-2">{service.description}</p>
+            </div>
+          </div>
+
+          <!-- Arrow Icon -->
+          <div class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full border">
+            <a href={`/servicesPages/${service.slug}`}>
+ 
+ 
+              <span>
+                <img src="/public/arrowblack.svg" width="20" height="20" class="mb-1 mr-1" />
+              </span>
+            </a>
+          </div>
+        </div>
+      ))}
+
+      {/* Read More Button */}
+      <div class="text-center mt-8">
+        <a href="/services">
+          <button class="text-blue-600 font-semibold hover:underline">
+            Read More
+          </button>
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
