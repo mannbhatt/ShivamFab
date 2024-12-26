@@ -10,7 +10,7 @@ export default defineConfig({
     react(), // Add React integration
     tailwind() // Add Tailwind CSS integration
   ],
-
+output: 'static',
   server: {
     host: true, // Allow access from the local network
   },
