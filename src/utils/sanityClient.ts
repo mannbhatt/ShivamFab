@@ -1,11 +1,10 @@
-import { createClient } from '@sanity/client';
+import sanityClient from '@sanity/client';
 
-const SanityDatabase = createClient({
-  projectId: 'icuoh1le',  // Replace with your Sanity project ID
-  dataset: 'production',  // Replace with your dataset name (e.g., 'production')
-  apiVersion: '2024-12-24',      // Use the current date in 'YYYY-MM-DD' format
-  token: 'your-sanity-token',    // Optional: If using a token for authentication
-  useCdn: true,                  // Use the CDN for faster read access
+const SantiyDatabase = sanityClient({
+  projectId: 'icuoh1le', // Replace with your project ID
+  dataset: 'production',       // Replace with your dataset name
+  apiVersion: '2023-01-01',    // Use a specific API version
+  useCdn: true,                // `true` if you want fast responses, `false` for fresh data
 });
 
-export default SanityDatabase;
+export default SantiyDatabase;
