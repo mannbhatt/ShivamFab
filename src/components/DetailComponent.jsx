@@ -5,9 +5,6 @@ const DetailComponent = ({ data }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesInModal, setImagesInModal] = useState([]);
 
-  
- 
-
   const openModal = (images, index) => {
     console.log("Opening modal with images:", images, "at index:", index);
     setImagesInModal(images); 
@@ -31,7 +28,6 @@ const DetailComponent = ({ data }) => {
     );
   };
 
-  
   const items = Array.isArray(data) ? data : [data];
 
   return (
@@ -91,7 +87,7 @@ const DetailComponent = ({ data }) => {
           onClick={closeModal}
         >
           <div
-            className="relative bg-white rounded-lg w-[80%] h-[80%] flex items-center justify-center overflow-hidden"
+            className="relative bg-white rounded-lg w-[70%] h-[70%] max-w-4xl max-h-4xl flex items-center justify-center overflow-hidden"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
@@ -115,6 +111,7 @@ const DetailComponent = ({ data }) => {
               src={imagesInModal[currentImageIndex]}
               alt="Gallery Image"
               className="max-w-full max-h-full object-contain"
+              style={{ width: "100%", height: "100%", objectFit: "contain" }}
             />
 
             {/* Right Arrow */}
