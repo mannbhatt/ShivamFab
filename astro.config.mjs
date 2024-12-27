@@ -10,11 +10,10 @@ export default defineConfig({
   integrations: [
     react(), // Add React integration
     tailwind(), // Add Tailwind CSS integration
-    vercel()
+    vercel() // Add Vercel adapter
   ],
 
-adapter: vercel(),
   server: {
     host: true, // Allow access from the local network
-  },
+  }
 });
