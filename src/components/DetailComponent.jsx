@@ -103,7 +103,7 @@ const DetailComponent = ({ data }) => {
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300"
               onClick={prevImage}
             >
-              <img src="./public/leftarrowgallery.svg" alt="Previous" />
+              <img src="/leftarrowgallery.svg" alt="Previous" />
             </button>
 
             {/* Gallery Image */}
@@ -118,7 +118,7 @@ const DetailComponent = ({ data }) => {
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300"
               onClick={nextImage}
             >
-              <img src="./public/rightarrowgallery.svg" alt="Next" />
+              <img src="/rightarrowgallery.svg" alt="Next" />
             </button>
           </div>
         </div>
