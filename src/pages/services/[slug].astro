@@ -1,9 +1,7 @@
 ---
 import { fetchServices } from "../../utils/sanityData";
 import DetailedComponent from "../../components/DetailComponent";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-
+import Layout from "../../layouts/Layout.astro";
 interface Service {
   slug: string;
   title: string;
@@ -43,14 +41,8 @@ export async function getStaticPaths() {
   }));
 }
 ---
-<html lang="en">
-  <head>
-    <title>{service.title}</title>
-  </head>
-  <body class="font-inter">
-   
-  <Header />
+<Layout>
+  
   <DetailedComponent data={service} client:load />
-  <Footer />
-</body>
-</html>
+  
+</Layout>
