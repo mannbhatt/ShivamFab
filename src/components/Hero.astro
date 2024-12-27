@@ -5,9 +5,9 @@ interface HeroProps {
   subtitle?: string;
   buttonText?: string;
   buttonLink?: string;
-  imageUrl: string;
-  arrowsvg: string;
-  rocketsvg:string;
+  imageUrl?: string;
+  arrowsvg?: string;
+  rocketsvg?:string;
   svgText?: string;
 }
 
@@ -16,9 +16,9 @@ const {
   subtitle = " Discover how our innovative EPC solutions are transforming industries and creating a more sustainable world creating a more sustainable world ",
   buttonText="Get Started",
   buttonLink="#",
-  imageUrl="/public/HeroImg.png",
-  rocketsvg = "/public/rocket.svg",
-  arrowsvg="/public/arrow.svg",
+  imageUrl="./public/HeroImg.png",
+  rocketsvg = "./public/rocket.svg",
+  arrowsvg="./public/arrow.svg",
   svgTextRate = "4.8/5.0",
   svgText= " customer rating"
 } = Astro.props;
