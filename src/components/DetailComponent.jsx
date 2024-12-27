@@ -4,40 +4,44 @@ const DetailComponent = ({ data }) => {
   const [isModalOpen, setModalOpen] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
   const [imagesInModal, setImagesInModal] = useState([]);
+
   
-  // This will show you the data structure in the console
-  
+ 
+
   const openModal = (images, index) => {
     console.log("Opening modal with images:", images, "at index:", index);
-    setImagesInModal(images); // Set images in modal
-    setCurrentImageIndex(index); // Set current index
-    setModalOpen(true); // Open the modal
+    setImagesInModal(images); 
+    setCurrentImageIndex(index); 
+    setModalOpen(true); 
   };
 
   const closeModal = () => {
-    setModalOpen(false); // Close the modal
+    setModalOpen(false);
   };
 
   const nextImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex < imagesInModal.length - 1 ? prevIndex + 1 : 0
-    ); // Move to next image
+    ); 
   };
 
   const prevImage = () => {
     setCurrentImageIndex((prevIndex) =>
       prevIndex > 0 ? prevIndex - 1 : imagesInModal.length - 1
-    ); // Move to previous image
+    );
   };
+
   
+  const items = Array.isArray(data) ? data : [data];
+
   return (
     <section className="py-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-14">
-        {data.map((item, index) => (
+        {items.map((item, index) => (
           <div key={index} className="cursor-pointer py-12 border-y" id={item.slug}>
             {/* Title and Description */}
             <div className="flex flex-col lg:flex-row pb-6 justify-between items-center">
-              <h2 className="lg:w-64 text-4xl  lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
+              <h2 className="lg:w-64 text-4xl lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
                 {item.title}
               </h2>
               <p className="text-gray-600 text-center font-semibold lg:text-left lg:max-w-lg">
@@ -103,7 +107,7 @@ const DetailComponent = ({ data }) => {
               className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300"
               onClick={prevImage}
             >
-              <img src="./public/leftarrowgallery.svg" alt="Previous" />
+              <img src="/leftarrowgallery.svg" alt="Previous" />
             </button>
 
             {/* Gallery Image */}
@@ -118,7 +122,7 @@ const DetailComponent = ({ data }) => {
               className="absolute right-4 top-1/2 transform -translate-y-1/2 text-white text-4xl hover:text-gray-300"
               onClick={nextImage}
             >
-              <img src="./public/rightarrowgallery.svg" alt="Next" />
+              <img src="/rightarrowgallery.svg" alt="Next" />
             </button>
           </div>
         </div>

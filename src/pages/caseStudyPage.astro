@@ -3,14 +3,14 @@ import DetailComponent from "../components/DetailComponent.jsx";
 import Layout from "../layouts/Layout.astro";
 import { fetchCaseStudies } from "../utils/sanityData";
 
-// Fetching data dynamically
+
 const caseStudies = await fetchCaseStudies(); 
 
-// Transform fetched data into the required structure
+
 const data = caseStudies.map((caseStudy) => ({
   title: caseStudy.title,
   description: caseStudy.description,
-  slug: caseStudy.slug, // Include slug for each case study
+  slug: caseStudy.slug, 
   images: caseStudy.images.map((image) => ({
     src: image.src,
     alt: image.alt || "Case study image",
@@ -20,6 +20,6 @@ const data = caseStudies.map((caseStudy) => ({
 ---
 
 <Layout title="Case Studies">
-  <!-- Pass the fetched data as props to DetailComponent -->
+ 
   <DetailComponent data={data} client:load />
 </Layout>

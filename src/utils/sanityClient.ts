@@ -1,10 +1,10 @@
 import { createClient } from '@sanity/client';
 
 const SanityDatabase = createClient({
-  projectId: 'icuoh1le', // Replace with your project ID
-  dataset: 'production', // Replace with your dataset name
-  apiVersion: '2023-01-01', // Use a specific API version
-  useCdn: true, // `true` if you want fast responses, `false` for fresh data
+  projectId: 'icuoh1le', 
+  dataset: 'production', 
+  apiVersion: '2023-01-01', 
+  useCdn: true, 
 });
 
 export default SanityDatabase;

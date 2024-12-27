@@ -1,15 +1,15 @@
 ---
 import { fetchLongBenefits, fetchShortBenefits } from '../utils/sanityData';
 
-// Fetch data from Sanity
+
 const longBenefits = await fetchLongBenefits();
 const shortBenefits = await fetchShortBenefits();
 
-// Transform fetched data into required structure
+
 const detailedFeatures = longBenefits.map((benefit) => ({
   title: benefit.title,
   description: benefit.description,
-  icon: benefit.icon || "./public/default-icon.svg", // Use a default icon if none is provided
+  icon: benefit.icon || "./public/default-icon.svg", 
 }));
 
 const shortFeatures = shortBenefits.map((benefit) => ({
@@ -17,7 +17,7 @@ const shortFeatures = shortBenefits.map((benefit) => ({
   description: benefit.description,
 }));
 
-// Component props
+
 const {
   heading = "Our Main Benefits",
   subheading = "Discover the key benefits of partnering with us. Our focus is on providing innovative and sustainable solutions.",
@@ -26,7 +26,7 @@ const {
 
 <section class="py-12">
   <div class="container w-[86%] tracking-tight mx-auto border rounded-3xl bg-blue-100 py-14 px-6 sm:px-6 lg:px-10">
-    <!-- Title -->
+    
     <div class="text-center leading-normal mb-10">
       <h2 class="text-4xl lg:text-5xl font-bold lg:leading-9 text-black mb-2">{heading}</h2>
       <p class="text-gray-600 font-medium text-center break-words max-w-xl pt-2 mx-auto">
@@ -34,7 +34,7 @@ const {
       </p>
     </div>
 
-    <!-- Feature Boxes -->
+   
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {/* Render Detailed Features */}
       {detailedFeatures.map((feature) => (
@@ -47,7 +47,7 @@ const {
         </div>
       ))}
 
-      {/* Render Short Features for Last 3 Cards */}
+     
       {shortFeatures.map((feature) => (
         <div class="flex bg-white p-4 rounded-2xl shadow items-center hover:shadow-lg transition-shadow">
           <h3 class="text-3xl font-bold text-[#072F6A] mb-2">{feature.title}</h3>
