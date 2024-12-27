@@ -11,7 +11,7 @@ export default defineConfig({
     react(), // Add React integration
     tailwind() // Add Tailwind CSS integration
   ],
-output: 'static',
+output: 'server',
 adapter: vercel(),
   server: {
     host: true, // Allow access from the local network
