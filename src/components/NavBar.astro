@@ -1,14 +1,14 @@
 <div class="bg-[#A7C5FB] text-[#072F6A]">
-  <div class="container mx-auto flex justify-between items-center py-4 px-4">
+  <div class="container mx-auto flex justify-between items-center py-4 px-6">
     <!-- Logo -->
-    <div class=" flex items-center">
+    <div class="flex items-center">
       <img src="/logo.png" alt="Logo" class="h-10 mr-2" />
       <span class="text-lg font-medium">Shivam</span>
     </div>
 
     <!-- Hamburger Icon for Mobile (Hidden on Desktop) -->
     <button id="hamburgerIcon" class="lg:hidden text-3xl text-[#072F6A]">
-      &#9776; <!-- Hamburger Icon -->
+      &#9776;
     </button>
 
     <!-- Navigation Links (Visible on Desktop) -->
@@ -21,48 +21,59 @@
         Industry
         <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#236CF6] opacity-0 group-hover:opacity-100 lg:block hidden"></span>
       </a>
-      <a href="/caseStudyPage" class="relative text-base font-medium group hover:text-[#072F6A]" id="caseStudyPageLink">
+      <a href="/caseStudyPage" class="relative text-base font-medium group hover:text-[#072F6A]" id="caseStudyLink">
         Case Study
         <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#236CF6] opacity-0 group-hover:opacity-100 lg:block hidden"></span>
       </a>
-      <a href="/servicesPage" class="relative text-base font-medium group hover:text-[#072F6A]" id="aboutUsLink">
+      <a href="/servicesPage" class="relative text-base font-medium group hover:text-[#072F6A]" id="servicesLink">
         Services
         <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#236CF6] opacity-0 group-hover:opacity-100 lg:block hidden"></span>
       </a>
-      <a href="#contactUs" class="text-base font-medium text-[#A7C5FB] bg-[#072F6A] py-2 px-6 rounded-lg flex justify-center items-center">
+      <a href="/aboutUs" class="relative text-base font-medium group hover:text-[#072F6A]" id="aboutUsLink">
+        About Us
+        <span class="absolute bottom-0 left-0 w-full h-[2px] bg-[#236CF6] opacity-0 group-hover:opacity-100 lg:block hidden"></span>
+      </a>
+      <a href="/contact-us" class="text-base font-medium text-[#A7C5FB] bg-[#072F6A] py-2 px-6 rounded-lg flex justify-center items-center">
         Contact Us
       </a>
     </nav>
   </div>
 </div>
 
-<!-- Mobile Menu (Hidden initially) -->
-<div id="mobileNavMenu" class="lg:hidden fixed top-0 right-0 bottom-0 bg-[#A7C5FB] bg-opacity-90 z-50 hidden w-[60%] h-[100vh]">
+<!-- Mobile Menu -->
+<div id="mobileNavMenu" class="lg:hidden fixed top-0 right-0 bottom-0 bg-[#A7C5FB] bg-opacity-100 z-[900] hidden w-[100%] h-[100vh] flex flex-col justify-between">
   <div class="flex justify-end p-6">
     <button id="closeMenu" class="text-[#236CF6] text-3xl">&times;</button>
   </div>
-  <!-- Mobile Menu -->
-  <div class="flex flex-col items-start space-y-6 px-6 py-4 w-full h-full overflow-y-auto">
+  <div class="flex flex-col items-start space-y-6 px-6 py-4 w-full h-full overflow-y-auto flex-grow">
     <a href="/" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileHomeLink">
       Home
     </a>
     <a href="/industryPage" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileIndustryLink">
       Industry
     </a>
-    <a href="/caseStudyPage" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobilecaseStudyPageLink">
+    <a href="/CaseStudyPage" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileCaseStudyLink">
       Case Study
     </a>
-    <a href="/servicesPage" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileAboutUsLink">
-      Services
+    
+    <a href="serviecesPage" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileServicesLink">
+      About Us
+    </a>
+    <a href="/aboutUs" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileAboutUsLink">
+      About Us
     </a>
     <a href="/contact-us" class="relative text-xl font-medium group text-[#236CF6] hover:text-[#072F6A]" id="mobileContactUsLink">
       Contact Us
     </a>
   </div>
+
+  <!-- Get in Touch Button at the Bottom -->
+  <a href="/contact-us" class="text-xl font-medium group text-white bg-[#072F6A] py-2 px-6 rounded-none text-center mb-6 mx-4">
+    Get in Touch
+  </a>
 </div>
 
 <script>
-  // JavaScript for toggling mobile menu and managing scroll
   const hamburgerIcon = document.getElementById('hamburgerIcon');
   const mobileNavMenu = document.getElementById('mobileNavMenu');
   const closeMenu = document.getElementById('closeMenu');
@@ -70,42 +81,12 @@
   if (hamburgerIcon && mobileNavMenu && closeMenu) {
     hamburgerIcon.addEventListener('click', () => {
       mobileNavMenu.classList.toggle('hidden');
-      document.body.classList.toggle('no-scroll'); // Disable body scroll
+      document.body.style.overflow = mobileNavMenu.classList.contains('hidden') ? 'auto' : 'hidden'; // Disable scrolling on body
     });
 
     closeMenu.addEventListener('click', () => {
       mobileNavMenu.classList.add('hidden');
-      document.body.classList.remove('no-scroll'); // Enable body scroll
+      document.body.style.overflow = 'auto'; // Re-enable scrolling on body
     });
   }
-
-  // Highlight active link
-  document.addEventListener("DOMContentLoaded", function () {
-    const path = window.location.pathname;
-
-    // Desktop links
-    const desktopLinks = {
-      '/': 'homeLink',
-      '/industryPage': 'industryLink',
-      '/caseStudyPage': 'caseStudyPageLink',
-      '/ServicesPage': 'servicesPageLink',
-      '/contact-us': 'contactUsLink'
-    };
-
-    // Mobile links
-    const mobileLinks = {
-      '/': 'mobileHomeLink',
-      '/industryPage': 'mobileIndustryLink',
-      '/caseStudyPage': 'mobilecaseStudyPageLink',
-      '/servicesPage': 'mobileservicesPageLink',
-      '/contact-us': 'mobileContactUsLink'
-    };
-
-    if (desktopLinks[path as keyof typeof desktopLinks]) {
-      document.getElementById(desktopLinks[path as keyof typeof desktopLinks])?.classList.add('text-[#072F6A]');
-    }
-    if (mobileLinks[path as keyof typeof mobileLinks]) {
-      document.getElementById(mobileLinks[path as keyof typeof mobileLinks])?.classList.add('text-[#236CF6]');
-    }
-  });
 </script>
