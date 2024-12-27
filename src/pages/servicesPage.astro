@@ -1,24 +1,81 @@
 ---
-import DetailComponent from "../components/DetailComponent.jsx";
-import Layout from "../layouts/Layout.astro";
 import { fetchServices } from "../utils/sanityData";
+import Layout from "../layouts/Layout.astro";
+const services = await fetchServices();
 
-
-const services = await fetchServices(); 
-
-
-const data = services.map((service) => ({
+const serviceDetails = services.map((service) => ({
   title: service.title,
   description: service.description,
-  slug: service.slug, 
-  images: service.images.map((image) => ({
-    src: image.src,
-    alt: image.alt || "Service image",
-  })),
+  image: service.images[0]?.src || "",
+  alt: service.images[0]?.alt || "Default alt text",
+  slug: service.slug,
 }));
----
 
-<Layout title="Services">
- 
-  <DetailComponent data={data} client:load />
+const {
+  heading = "Providing Best Services",
+  subheading = "We are dedicated to providing the best services in the sustainability manufacturing industry. Our commitment to excellence is reflected in our innovative practices, cutting-edge technology, and a passionate team of experts.",
+} = Astro.props;
+---
+<Layout>
+<section class="py-12 bg-white">
+  <div class="container mx-auto px-6 sm:px-6 lg:px-14">
+    <div
+      class="flex flex-col lg:flex-row lg:items-center justify-between mb-12"
+    >
+      <div class="lg:w-[28%] text-center lg:text-left">
+        <h2
+          class="text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-900"
+        >
+          {heading}
+        </h2>
+      </div>
+      <div
+        class="lg:max-w-lg font-semibold text-center lg:text-left mt-6 lg:mt-0"
+      >
+        <p class="text-gray-600 font-semibold">{subheading}</p>
+      </div>
+    </div>
+
+    <div class="py-2 lg:py-4">
+      {
+        serviceDetails.map((service) => (
+          <div class="flex flex-col lg:flex-row items-center gap-6 justify-between bg-white border-y py-6 lg:py-10">
+            <img
+              src={service.image}
+              alt={service.alt}
+              class="w-4/5 lg:w-[30%] lg:h-40 rounded-2xl object-cover"
+            />
+
+            <div class="lg:w-3/5 flex flex-col lg:flex-row justify-between gap-4">
+              <div class="lg:w-2/5 flex justify-center lg:justify-start items-center text-center lg:text-left">
+                <h3 class="text-3xl lg:leading-tight lg:text-4xl font-semibold">
+                  {service.title}
+                </h3>
+              </div>
+
+              <div class="lg:w-1/2 flex justify-center lg:justify-start items-center text-center lg:text-left">
+                <p class="text-gray-600 text-sm mt-2">{service.description}</p>
+              </div>
+            </div>
+
+            <div class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full border">
+              <a href={`/services/${service.slug}`}>
+                <span>
+                  <img
+                    src="/arrowblack.svg"
+                    width="20"
+                    height="20"
+                    class="mb-1 mr-1"
+                  />
+                </span>
+              </a>
+            </div>
+          </div>
+        ))
+      }
+
+    
+    </div>
+  </div>
+</section>
 </Layout>
