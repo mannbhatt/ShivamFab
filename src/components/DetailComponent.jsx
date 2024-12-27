@@ -29,12 +29,12 @@ const DetailComponent = ({ data }) => {
       prevIndex > 0 ? prevIndex - 1 : imagesInModal.length - 1
     ); // Move to previous image
   };
-
+  
   return (
     <section className="py-0">
       <div className="container mx-auto px-4 sm:px-6 lg:px-14">
         {data.map((item, index) => (
-          <div key={index} className="cursor-pointer py-12 border-y">
+          <div key={index} className="cursor-pointer py-12 border-y" id={item.slug}>
             {/* Title and Description */}
             <div className="flex flex-col lg:flex-row pb-6 justify-between items-center">
               <h2 className="lg:w-64 text-4xl  lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
