@@ -12,7 +12,7 @@ export default defineConfig({
     tailwind(), // Add Tailwind CSS integration
     vercel()
   ],
-output: 'server',
+
 adapter: vercel(),
   server: {
     host: true, // Allow access from the local network
