@@ -9,7 +9,9 @@ const shortBenefits = await fetchShortBenefits();
 const detailedFeatures = longBenefits.map((benefit) => ({
   title: benefit.title,
   description: benefit.description,
-  icon: benefit.icon || "./public/default-icon.svg", 
+
+  icon: benefit.icon || "./public/building.svg", 
+
 }));
 
 const shortFeatures = shortBenefits.map((benefit) => ({
