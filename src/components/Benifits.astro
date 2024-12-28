@@ -40,7 +40,7 @@ const {
     <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
       {/* Render Detailed Features */}
       {detailedFeatures.map((feature) => (
-        <div class="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition-shadow">
+        <div class="bg-white cursor-pointer p-4 rounded-2xl shadow hover:shadow-lg transition-shadow">
           <div class="flex items-center justify-center h-12 w-12 rounded-full bg-[#072F6A] mb-4">
             {feature.icon && <img src={feature.icon} alt={feature.title} />}
           </div>
@@ -52,7 +52,7 @@ const {
     </div>
     <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
       {shortFeatures.map((feature) => (
-        <div class="flex sm:flex-col md:flex-row lg:flex-row  bg-white p-4 rounded-2xl shadow items-center hover:shadow-lg transition-shadow">
+        <div class="flex sm:flex-col md:flex-row lg:flex-row  bg-white p-4 rounded-2xl shadow items-center hover:shadow-lg transition-shadow cursor-pointer">
           <h3 class="text-3xl font-bold sm:text-center text-[#072F6A] mb-2">{feature.title}</h3>
           <p class="pl-2 text-sm sm:text-center font-medium text-gray-600">{feature.description}</p>
         </div>
