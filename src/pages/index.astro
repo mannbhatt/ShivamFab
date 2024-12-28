@@ -7,17 +7,19 @@ import Benifits from '../components/Benifits.astro';
 import Service from '../components/Service.astro';
 import CaseStudy from '../components/CaseStudy.astro';
 
-const seo = {
-  title: "Welcome to Shivam Fabrication",
+import SEO from "../components/SEO.astro";
+
+const seoData = {
+  title: "Shivam Fabrication",
   description: "Expert fabrication services for your business needs.",
+  url: "https://shivam-fab-git-main-manb35624-gmailcoms-projects.vercel.app",
+  image: "https://shivam-fab-git-main-manb35624-gmailcoms-projects.vercel.app/HeroImg.png",
   keywords: "fabrication, metalwork, custom solutions",
-  url: "https://shivamfabrication.com",
-  image: "https://shivamfabrication.com/images/hero.jpg",
 };
 ---
 
 <Layout>
-	
+	<SEO {...seoData} />
 	<Hero />
 	
 	<Investors_Partner />
