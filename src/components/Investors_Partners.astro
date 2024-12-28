@@ -18,7 +18,7 @@ const clients = await fetchClientData();
     </div>
 
   
-    <div class="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+    <div class="flex flex-wrap justify-center gap-4">
       {clients.map((client, index) => (
         <div
           class="flex items-center justify-center p-2  rounded-lg "

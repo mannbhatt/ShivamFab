@@ -37,7 +37,7 @@ const {
     </div>
 
    
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-6">
       {/* Render Detailed Features */}
       {detailedFeatures.map((feature) => (
         <div class="bg-white p-4 rounded-2xl shadow hover:shadow-lg transition-shadow">
@@ -49,12 +49,14 @@ const {
         </div>
       ))}
 
-     
+    </div>
+    <div class="pt-6 grid grid-cols-1 sm:grid-cols-3 md:grid-cols-3 lg:grid-cols-3 gap-6">
       {shortFeatures.map((feature) => (
-        <div class="flex bg-white p-4 rounded-2xl shadow items-center hover:shadow-lg transition-shadow">
-          <h3 class="text-3xl font-bold text-[#072F6A] mb-2">{feature.title}</h3>
-          <p class="pl-2 text-sm font-medium text-gray-600">{feature.description}</p>
+        <div class="flex sm:flex-col md:flex-row lg:flex-row  bg-white p-4 rounded-2xl shadow items-center hover:shadow-lg transition-shadow">
+          <h3 class="text-3xl font-bold sm:text-center text-[#072F6A] mb-2">{feature.title}</h3>
+          <p class="pl-2 text-sm sm:text-center font-medium text-gray-600">{feature.description}</p>
         </div>
+        
       ))}
     </div>
   </div>
