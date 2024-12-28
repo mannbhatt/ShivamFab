@@ -33,7 +33,7 @@ const CaseStudySlider = ({ caseStudies }) => {
                 }`}
               >
                 {/* Text Content */}
-                <div className="flex-col p-8 lg:p-10 text-center md:text-left lg:text-left font-semibold justify-between md:w-1/2">
+                <div className="flex-col p-8 lg:p-10 text-center md:text-left lg:text-justify font-semibold justify-between md:w-1/2">
                   <h3 className="text-3xl font-bold mb-4 lg:mb-10 ">
                     {study.title}
                   </h3>

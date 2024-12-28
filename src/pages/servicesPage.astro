@@ -20,7 +20,7 @@ const {
 <section class="py-12 bg-white">
   <div class="container mx-auto px-6 sm:px-6 lg:px-14">
     <div
-      class="flex flex-col lg:flex-row lg:items-center justify-between mb-12"
+      class="flex flex-col lg:flex-row lg:items-center justify-between mb-10"
     >
       <div class="lg:w-[28%] text-center lg:text-left">
         <h2
@@ -30,16 +30,16 @@ const {
         </h2>
       </div>
       <div
-        class="lg:max-w-lg font-semibold text-center lg:text-justify mt-6 lg:mt-0"
+        class="lg:max-w-lg  text-center lg:text-justify mt-6 lg:mt-0"
       >
-        <p class="text-gray-600 font-semibold">{subheading}</p>
+        <p class="text-gray-600 font-medium">{subheading}</p>
       </div>
     </div>
 
-    <div class="py-2 lg:py-4">
+    <div class="py-2 ">
       {
         serviceDetails.map((service) => (
-          <div class="flex flex-col lg:flex-row items-center gap-6 justify-between bg-white border-y py-6 lg:py-10">
+          <div class="flex flex-col lg:flex-row items-center gap-6 justify-between bg-white border-y first:border-t-0 last:border-b-0 py-6 lg:py-10">
             <img
               src={service.image}
               alt={service.alt}

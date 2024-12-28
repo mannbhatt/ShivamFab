@@ -40,7 +40,7 @@ const DetailComponent = ({ data }) => {
               <h2 className="lg:w-64 text-4xl lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
                 {item.title}
               </h2>
-              <p className="text-gray-600 text-center font-semibold lg:text-left lg:max-w-lg">
+              <p className="text-gray-600 text-center font-medium lg:text-justify lg:max-w-lg">
                 {item.description}
               </p>
             </div>
