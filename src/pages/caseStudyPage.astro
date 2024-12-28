@@ -34,7 +34,7 @@ const {
           </h2>
         </div>
         <div
-          class="lg:max-w-lg font-semibold text-center lg:text-left mt-6 lg:mt-0"
+          class="lg:max-w-lg font-semibold text-center lg:text-justify mt-6 lg:mt-0"
         >
           <p class="text-gray-600 font-semibold">{subheading}</p>
         </div>
@@ -57,23 +57,24 @@ const {
                   </h3>
                 </div>
   
-                <div class="lg:w-1/2 flex justify-center lg:justify-start items-center text-center lg:text-left">
+                <div class="lg:w-1/2 flex justify-center lg:justify-start items-center text-center lg:text-justify">
                   <p class="text-gray-600 text-sm mt-2">{data.description}</p>
                 </div>
               </div>
   
-              <div class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full border">
-                <a href={`/caseStudies/${data.slug}`}>
-                  <span>
-                    <img
-                      src="/arrowblack.svg"
-                      width="20"
-                      height="20"
-                      class="mb-1 mr-1"
-                    />
-                  </span>
-                </a>
-              </div>
+              <div class="flex items-center justify-center w-10 h-10 bg-blue-100 rounded-full border group">
+    <a href={`/caseStudies/${data.slug}`} class="group-active:rotate-[-45deg]">
+      <span>
+        <img
+          src="/arrowblack.svg"
+          width="20"
+          height="20"
+          class="transition-transform duration-500 ease-in-out transform group-active:rotate-[-45deg] mb-1 mr-1"
+        />
+      </span>
+    </a>
+  </div>
+
             </div>
           ))
         }
@@ -84,4 +85,4 @@ const {
   </section>
   </Layout>
 
-
+  
