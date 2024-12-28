@@ -37,9 +37,9 @@ const DetailComponent = ({ data }) => {
           <div key={index} className="cursor-pointer py-12 border-y" id={item.slug}>
             {/* Title and Description */}
             <div className="flex flex-col lg:flex-row pb-6 justify-between items-center">
-              <h2 className="lg:w-64 text-4xl lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
+              <h1 className="lg:w-64 text-4xl lg:text-5xl text-center lg:text-left font-bold text-gray-900 mb-4">
                 {item.title}
-              </h2>
+              </h1>
               <p className="text-gray-600 text-center font-medium lg:text-justify lg:max-w-lg">
                 {item.description}
               </p>

@@ -3,11 +3,11 @@ import Header from "../components/Header.astro"
 import Footer from "../components/Footer.astro"
 import SEO from "../components/SEO.astro";
 
-const defaultSEO = {
+const seoData = {
   title: "Shivam Fabrication",
-  description: "Providing quality fabrication services for all your needs.",
-  url: "https://shivamfabrication.com",
-  image: "https://shivamfabrication.com/images/default.jpg",
+  description: "Expert fabrication services for your business needs.",
+  url: "https://shivam-fab-git-main-manb35624-gmailcoms-projects.vercel.app",
+  image: "https://shivam-fab-git-main-manb35624-gmailcoms-projects.vercel.app/HeroImg.png",
   keywords: "fabrication, metalwork, custom solutions",
 };
 ---
@@ -17,10 +17,11 @@ const defaultSEO = {
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<SEO {...defaultSEO} />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+	 	<SEO {...seoData} />
+		<link rel="icon" type="image/svg+xml" href="/SF_Logo.png" />
 		<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
 		<meta name="generator" content={Astro.generator} />
+
 		<title>Shivam Fabrication</title>
 	</head>
 	<body class="font-inter">
