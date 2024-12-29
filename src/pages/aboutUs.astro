@@ -23,9 +23,9 @@ import Layout from "../layouts/Layout.astro"
       <div class="pb-12 pt-24 text-center">
         <h2 class="text-4xl  font-bold  mb-8">Our Vision & Mission</h2>
 
-        <div class="pt-6 w-full flex flex-col-reverse md:flex-row lg:flex-row gap-4 items-center">
+        <div class="pt-6 w-full grid grid-cols-1 md:grid-cols-2 gap-4  items-center">
           <!-- Content Section -->
-          <div class="lg:w-1/2 text-justify space-y-6">
+          <div class=" text-justify space-y-6 order-2 md:order-1">
             <h2 class="text-3xl text-center lg:text-left font-bold ">Our Vision</h2>
             <p class="text-gray-700 font-medium leading-relaxed">
               To be a leader in the fabrication industry by consistently delivering innovative, sustainable, and high-quality solutions. We aim to build lasting relationships with our clients through trust, excellence, and a commitment to exceeding expectations, contributing to the growth and development of the communities we serve.
@@ -33,9 +33,10 @@ import Layout from "../layouts/Layout.astro"
           </div>
       
           <!-- Image Section -->
-          <div class="lg:w-1/2 flex justify-end">
+          <div class="w-full flex justify-end order-1 md:order-2 ">
             <img src="https://cdn.pixabay.com/photo/2022/01/28/07/40/arrows-6973890_1280.jpg" 
                  alt="Vision image" 
+                 height="285"
                  class="rounded-lg shadow-lg  lg:w-2/3 h-auto object-cover object-center">
           </div>
           </div>
@@ -65,7 +66,7 @@ import Layout from "../layouts/Layout.astro"
       <div class="py-12 text-center">
         <h2 class="text-4xl font-bold  mb-8">Why Choose Us</h2>
 
-        <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="py-8 grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-12 items-center">
           <div class="lg:w-[70%] flex justify-center">
             <img src="https://cdn.pixabay.com/photo/2021/03/31/07/48/businessman-6138818_1280.png" alt="Why Choose Us image" class="rounded-lg shadow-lg  h-auto">
           </div>
@@ -73,7 +74,7 @@ import Layout from "../layouts/Layout.astro"
             <p class="text-gray-600  font-medium  leading-relaxed mb-8">
               At Shivam Fabrication, we deliver unmatched quality with precision and durability. Backed by an experienced team, we ensure timely delivery, competitive pricing, and a customer-first approach. Our commitment to trust and excellence makes us the ideal partner for all your fabrication needs.
             </p>
-            <a class="flex justify-center lg:justify-start" href="/#ContactUs">
+            <a class="flex justify-center md:justify-start lg:justify-start" href="/#ContactUs">
             <button class="flex items-center justify-center font-medium bg-[#072F6A] text-white px-6 py-2 rounded-lg hover:bg-blue-600 space-x-2">
               Contact Us
             </button>
