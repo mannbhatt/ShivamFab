@@ -1,9 +1,8 @@
 ---
-import { date } from "astro:schema";
-import DetailComponent from "../components/DetailComponent.jsx";
+
 import Layout from "../layouts/Layout.astro";
 import { fetchIndustry } from "../utils/sanityData"; 
- 
+import PageFullData from "../components/PageFullData.astro";
 const industrydata = await fetchIndustry();  
 
 const data = industrydata.map((industry) => ({
@@ -17,81 +16,17 @@ const data = industrydata.map((industry) => ({
 const {
   heading = "Industries",
   subheading = "Tailored solutions to meet the unique demands of diverse industries, driving innovation and excellence in every field we serve.",
+  Type="industries",
 } = Astro.props;
 ---
-<Layout>
-  <section class="py-12 bg-white" id="Services">
-    <div class="container mx-auto px-6 sm:px-6 lg:px-14">
-      <!-- Heading Section -->
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between mb-10">
-        <div class="lg:w-[28%] text-center lg:text-left">
-          <h2
-            class="text-4xl lg:text-5xl lg:leading-tight font-bold text-gray-900"
-          >
-            {heading}
-          </h2>
-        </div>
-        <div class="lg:max-w-lg text-justify lg:text-justify mt-6 lg:mt-0">
-          <p class="text-gray-600 font-medium">{subheading}</p>
-        </div>
-      </div>
-  
-      <!-- Service Details Section -->
-      <div class="py-2">
-        {
-          data.map((data, index) => (
-            <div
-              class={`flex flex-col lg:flex-row items-center lg:items-center gap-6 justify-between bg-white border-y first:border-t-0 last:border-b-0 py-6 lg:py-10`}
-            >
-              <!-- Service Image -->
-              <img
-                src={data.image}
-                alt={data.alt}
-                class="w-[100%] lg:w-[30%] h-64 lg:h-40 rounded-2xl object-cover"
-              />
-              
-              <!-- Content Section -->
-              <div class="flex  w-full lg:w-[70%]  flex-row items-center lg:items-center justify-between gap-10 px-2 lg:pl-4">
-                <div class=" w-[80%] lg:w-full flex flex-col lg:flex-row lg:items-center justify-between gap-2 lg:gap-10 ">
-                  
-                  <!-- Service Title -->
-                  <div class=" lg:w-2/5 flex justify-start  lg:justify-start lg:items-center  lg:text-left">
-                    <h3 class="text-3xl lg:leading-tight lg:text-4xl font-semibold">
-                      {data.title}
-                    </h3>
-                  </div>
-  
-                  <!-- Service Description -->
-                  <div class="lg:w-1/2 flex lg:justify-start lg:items-center text-justify lg:text-justify">
-                    <p class="text-gray-600 text-sm mt-2">{data.description}</p>
-                  </div>
-                </div>
-                  <!-- Arrow Icon (Centered Horizontally) -->
-                  <div class="flex items-center text-center justify-center w-10 h-10 bg-blue-100 rounded-full border mx-auto group">
-                    <a href={`/industries/${data.slug}`} class="group">
-                      <span>
-                        <img
-                          src="/arrowblack.svg"
-                          width="20"
-                          height="20"
-                          alt={`"arrowblack ${index}"`}
-                          class="transition-transform duration-500 ease-in-out transform group-hover:rotate-[-45deg] group-active:rotate-[-45deg] mb-1 mr-1"
-                        />
-                      </span>
-                    </a>
-                  </div>
-                
-              </div>
-            </div>
-          ))
-        }
-  
-        <!-- Learn More Button -->
-       
-      </div>
-    </div>
-  </section>
-    
-  </Layout>
 
+  
+<Layout>
+  <PageFullData
+    heading={heading}
+    subheading={subheading}
+    Details={data}
+    PageName={Type}
+  />
+  </Layout>
   
