@@ -1,0 +1,31 @@
+---
+import TestimonialCarousel from '../components/TestimonialCarousel.jsx'
+
+const testimonials = [
+  {
+    company: 'Medtronic',
+    quote: 'We have used services from Xurya for most of our stations, this is our strategic step to continue to increase the number of solar panel usage for our stations, we are very satisfied with the services from Xurya.',
+    author: 'Jennifer Kolobay',
+    role: 'CTO EV Medtronic',
+    image: '/placeholder.svg?height=400&width=600',
+  },
+  {
+    company: 'SolarTech',
+    quote: 'The implementation was seamless and the results exceeded our expectations. Our energy costs have decreased significantly.',
+    author: 'Michael Chen',
+    role: 'Operations Director',
+    image: '/placeholder.svg?height=400&width=600',
+  },
+  {
+    company: 'GreenEnergy',
+    quote: 'Their innovative approach to renewable energy solutions has transformed our business model. The ROI has been remarkable.',
+    author: 'Sarah Martinez',
+    role: 'Sustainability Head',
+    image: '/placeholder.svg?height=400&width=600',
+  },
+];
+
+const paginationLabels = ['Commercial solar', 'Energy storage', 'Smart grid solutions'];
+---
+
+<TestimonialCarousel testimonials={testimonials} paginationLabels={paginationLabels} />
